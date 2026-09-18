@@ -27,6 +27,16 @@ The supported set is GitHub's, not ours:
 `LICENSE`, `README.md`, `CHANGELOG.md`, `CODEOWNERS` and `AGENTS.md` cannot be
 served this way and stay in the repository they belong to.
 
+Two files here are served by nothing and are simply kept in the one place that
+belongs to no single repository:
+
+- **`CONVENTIONS.md`** — the canonical text each repository restates in its own
+  `AGENTS.md`. A composite action in `github-actions` checks the copies against
+  it.
+- **`LICENSE`** — this repository's own. GitHub cannot serve a licence as a
+  default, and it should not: a licence has to travel with the code, so every
+  repository keeps its own copy of the same MIT text.
+
 ## Three rules worth knowing before editing
 
 **This repository has to stay public.** A private `.github` serves nothing, and
