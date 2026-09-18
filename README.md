@@ -12,18 +12,17 @@ than copied into five repositories and kept in step by hand.
 
 The supported set is GitHub's, not ours:
 
-| Path                       | Serves                                      |
-| -------------------------- | ------------------------------------------- |
-| `CODE_OF_CONDUCT.md`       | every repository                            |
-| `CONTRIBUTING.md`          | every repository                            |
-| `SECURITY.md`              | every repository                            |
-| `SUPPORT.md`               | every repository                            |
-| `ISSUE_TEMPLATE/`          | every repository, with `config.yml`         |
-| `PULL_REQUEST_TEMPLATE.md` | every repository                            |
-| `DISCUSSION_TEMPLATE/`     | every repository                            |
-| `FUNDING.yml`              | every repository                            |
-| `profile/README.md`        | the organization's public page              |
-| `workflow-templates/`      | starter workflows offered when creating one |
+| Path                       | Serves                              |
+| -------------------------- | ----------------------------------- |
+| `CODE_OF_CONDUCT.md`       | every repository                    |
+| `CONTRIBUTING.md`          | every repository                    |
+| `SECURITY.md`              | every repository                    |
+| `SUPPORT.md`               | every repository                    |
+| `ISSUE_TEMPLATE/`          | every repository, with `config.yml` |
+| `PULL_REQUEST_TEMPLATE.md` | every repository                    |
+| `DISCUSSION_TEMPLATE/`     | every repository                    |
+| `FUNDING.yml`              | every repository                    |
+| `profile/README.md`        | the organization's public page      |
 
 `LICENSE`, `README.md`, `CHANGELOG.md`, `CODEOWNERS` and `AGENTS.md` cannot be
 served this way and stay in the repository they belong to.
