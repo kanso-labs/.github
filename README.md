@@ -62,7 +62,7 @@ tidy-up does not delete it for consistency.
 
 ## This is not the CI repository
 
-[`kanso-labs/github-actions`](https://github.com/kanso-labs/github-actions)
+[`kanso-labs/actions`](https://github.com/kanso-labs/actions)
 holds the reusable workflows and composite actions that every repository calls.
 Nothing here is called by a workflow. Community health files and starter
 templates live here; anything with a `uses:` pointing at it lives there.

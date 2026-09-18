@@ -44,7 +44,7 @@ the organization that belongs to no single repository.
 
 **The `.tool-versions` rule reaches further than it looks.**
 `actions/setup-node` defaults `node-version-file` to `.tool-versions`, in
-`github-actions` and in every consumer, so that file is what a run actually
+`actions` and in every consumer, so that file is what a run actually
 resolves. A version written into prose beside it goes stale on the next
 Renovate bump while the pin moves on — so where a document needs to name the
 version in a command, it reads it out of the file rather than repeating it:
@@ -55,7 +55,7 @@ mise exec node@"$(awk '/^nodejs/{print $2}' .tool-versions)" -- npm install
 
 **Formatting is not shared, and assuming it is will send you to a command that
 does not exist.** oxfmt formats `kanso-ui` and `unplugin-style-dictionary`;
-Prettier formats `github-actions` through an `npm run format` script and
+Prettier formats `actions` through an `npm run format` script and
 `home-assistant-applications` through bare `npx`, which has no root
 `package.json` and so no script at all; `renovate` has no formatter. A roster of
 what each one runs belongs in each one rather than here. Read the Commands
