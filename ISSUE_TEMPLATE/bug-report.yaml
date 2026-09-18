@@ -1,0 +1,56 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a report.
+
+        If you are reporting a security vulnerability, stop here and follow
+        [SECURITY.md](https://github.com/kanso-labs/.github/blob/main/SECURITY.md)
+        instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      description: What you expected, and what happened instead.
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      description:
+        The smallest set of steps that shows the problem. A repository we can
+        clone is worth more than a description.
+      label: How to reproduce
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      description: The version of this project you are running.
+      label: Version
+      placeholder: e.g. 1.2.3
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      description:
+        Whatever places the report — the Node version, the operating system,
+        and anything this project is built against. Check the project's README
+        for the versions that matter to it.
+      label: Environment
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      description: Any error output, logs or stack traces. No need for backticks.
+      label: Output
+      render: shell
+    validations:
+      required: false
+description: Report something that does not work as documented.
+labels:
+  - 'kind:fix'
+name: Bug report
+title: 'fix: '
