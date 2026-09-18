@@ -7,22 +7,14 @@ The conventions shared by every repository in the
 in its own `AGENTS.md`, under the heading
 `Shared with the other kanso-labs repositories`, because an agent handed one
 repository on its own reads that file and never sees this one. The duplication
-is deliberate and the copies are checked against this text rather than trusted
-— see "Keeping the copies honest" at the end.
-
-**Edit between the markers, and expect to edit six files.** The
-`shared-conventions` comments below delimit what the check compares, in this
-file and in every copy. Changing the text here turns every repository's `Lint`
-red until its copy follows, which is the mechanism working rather than failing
-— but it means a change to the shared set is six pull requests, not one.
+is deliberate, and keeping the copies in step is done by hand — see "Keeping
+the copies in step" at the end.
 
 Unlike the other files here, GitHub does not serve this one to anything. It is
 a plain document in the `.github` repository, which is simply the one place in
 the organization that belongs to no single repository.
 
 ## The shared set
-
-<!-- shared-conventions:start -->
 
 - **Keys in JSON and YAML are ordered by name.** Files whose order carries
   meaning are exempt: workflows, where step order is execution order;
@@ -48,8 +40,6 @@ the organization that belongs to no single repository.
 - **`.tool-versions` pins a fully-specified version on every line**,
   `nodejs <major>.<minor>.<patch>`, never `nodejs 24` or `nodejs lts`.
 
-<!-- shared-conventions:end -->
-
 ## Two notes that travel with them
 
 **The `.tool-versions` rule reaches further than it looks.**
@@ -72,14 +62,17 @@ what each one runs belongs in each one rather than here. Read the Commands
 section of whichever repository you are actually in before reaching for a
 formatting command.
 
-## Keeping the copies honest
+## Keeping the copies in step
 
-Nothing above is enforced by GitHub. The copies in each `AGENTS.md` are checked
-against this file by a composite action in
-[`kanso-labs/github-actions`](https://github.com/kanso-labs/github-actions),
-called from each repository's `Lint` workflow.
+Nothing enforces any of this. There is no check comparing a repository's copy
+against this file, deliberately — the organization decided the cost of one was
+not worth what it would catch.
 
-The action lives there because that is where anything a workflow `uses:` lives.
-The text lives here because reading it out of `github-actions` would make one
-consumer repository the authority over its four peers; `.github` is nobody's
-peer.
+So a change to the shared set is a change to six files, and the discipline is
+the only thing holding them together:
+
+1. Edit this file first. It is the one that is right by definition.
+2. Open a pull request per repository carrying the same edit.
+
+A copy that has drifted is not wrong because it disagrees with a checker. It is
+wrong because the next agent to read it will follow it.

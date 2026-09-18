@@ -31,8 +31,8 @@ Two files here are served by nothing and are simply kept in the one place that
 belongs to no single repository:
 
 - **`CONVENTIONS.md`** — the canonical text each repository restates in its
-  own `AGENTS.md`. A composite action in `github-actions` checks the copies
-  against it.
+  own `AGENTS.md`. Nothing enforces the match; the copies are kept in step by
+  hand.
 - **`LICENSE.md`** — this repository's own. GitHub cannot serve a licence as a
   default, and it should not: a licence has to travel with the code, so every
   repository keeps its own copy of the same MIT text. Every formatter in the
