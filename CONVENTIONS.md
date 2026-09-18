@@ -10,11 +10,19 @@ repository on its own reads that file and never sees this one. The duplication
 is deliberate and the copies are checked against this text rather than trusted
 — see "Keeping the copies honest" at the end.
 
+**Edit between the markers, and expect to edit six files.** The
+`shared-conventions` comments below delimit what the check compares, in this
+file and in every copy. Changing the text here turns every repository's `Lint`
+red until its copy follows, which is the mechanism working rather than failing
+— but it means a change to the shared set is six pull requests, not one.
+
 Unlike the other files here, GitHub does not serve this one to anything. It is
 a plain document in the `.github` repository, which is simply the one place in
 the organization that belongs to no single repository.
 
 ## The shared set
+
+<!-- shared-conventions:start -->
 
 - **Keys in JSON and YAML are ordered by name.** Files whose order carries
   meaning are exempt: workflows, where step order is execution order;
@@ -39,6 +47,8 @@ the organization that belongs to no single repository.
   ranges are correct there and stay.
 - **`.tool-versions` pins a fully-specified version on every line**,
   `nodejs <major>.<minor>.<patch>`, never `nodejs 24` or `nodejs lts`.
+
+<!-- shared-conventions:end -->
 
 ## Two notes that travel with them
 
