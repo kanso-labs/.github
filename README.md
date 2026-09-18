@@ -33,9 +33,11 @@ belongs to no single repository:
 - **`CONVENTIONS.md`** — the canonical text each repository restates in its
   own `AGENTS.md`. A composite action in `github-actions` checks the copies
   against it.
-- **`LICENSE`** — this repository's own. GitHub cannot serve a licence as a
+- **`LICENSE.md`** — this repository's own. GitHub cannot serve a licence as a
   default, and it should not: a licence has to travel with the code, so every
-  repository keeps its own copy of the same MIT text.
+  repository keeps its own copy of the same MIT text. Every formatter in the
+  organization is told to leave it alone, which is what keeps the copies byte
+  for byte equal.
 
 ## Three rules worth knowing before editing
 
