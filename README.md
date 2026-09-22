@@ -38,15 +38,25 @@ place that belongs to no single repository:
   repository keeps its own copy of the same MIT text. Every formatter in the
   organization is told to leave it alone, which is what keeps the copies byte
   for byte equal.
-- **`default.json`** — the shared Renovate preset, described below. Unlike the
-  other two it is not restated anywhere: it is read, not copied.
+- **`renovate-config.json`** — the shared Renovate preset, described below.
+  Unlike the other two it is not restated anywhere: it is read, not copied.
 
 ## The shared Renovate preset
 
-`default.json` holds the Renovate settings that are true of every repository in
-the organization. It is referenced as `local>kanso-labs/.github`, which is what
-a bare repository reference resolves to — Renovate looks for `default.json` at
-the root when no filename is given.
+`renovate-config.json` holds the Renovate settings that are true of every
+repository in the organization. It is referenced as
+`local>kanso-labs/.github:renovate-config` — the part after the colon is the
+filename without its extension.
+
+The name is deliberate, and it is not the one Renovate reaches for by default.
+A bare `local>kanso-labs/.github` resolves to `default.json`, which would sit in
+a directory of community health files saying nothing about what reads it.
+`renovate-config.json` says it, and is also Renovate's own convention for an
+organization-wide config in a `.github` repository.
+
+It is not `renovate.json` either. That name reads as *this* repository's own
+Renovate config rather than as a preset for others, and the two would be
+indistinguishable in a file listing.
 
 Everything Renovate manages extends it, after `config:recommended` so that
 these values win:
@@ -99,7 +109,7 @@ holds the reusable workflows and composite actions that every repository calls.
 Nothing here is called by a workflow. Community health files and starter
 templates live here; anything with a `uses:` pointing at it lives there.
 
-`default.json` does not blur that line. It is configuration Renovate reads, not
+`renovate-config.json` does not blur that line. It is configuration Renovate reads, not
 something a workflow calls — no `uses:` points at it, and the workflow that
 runs Renovate lives in
 [`kanso-labs/renovate`](https://github.com/kanso-labs/renovate) either way.

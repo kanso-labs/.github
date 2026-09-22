@@ -25,13 +25,15 @@ tag and no pin: GitHub reads these files from `main`. So a half-finished edit to
 `CODE_OF_CONDUCT.md` is live the moment it is pushed, in six repositories at
 once.
 
-`default.json` is the same, by a different route. Renovate resolves
-`local>kanso-labs/.github` from `main` on every run, so a change to the shared
-preset reaches every managed repository within three hours — and a malformed
-one does not fail loudly, it errors each repository's config resolution. There
-is no CI here to catch it, so validate a change against a consumer before
-merging: add the setting to that repository's own config on a branch and run
-`renovate-config-validator --strict` there.
+`renovate-config.json` is the same, by a different route. Renovate resolves
+`local>kanso-labs/.github:renovate-config` from `main` on every run, so a change
+to the shared preset reaches every managed repository within three hours — and a
+malformed one does not fail loudly, it errors each repository's config
+resolution.
+
+There is no CI here to catch that. `kanso-labs/renovate` is the only repository
+that runs Renovate in CI, through its `Dry run Renovate` job, so a preset change
+is worth checking against a branch there before merging it here.
 
 **Nothing formats or lints this repository.** There is no `package.json`, no
 Prettier and no oxfmt — the same arrangement as `renovate`. Match the
