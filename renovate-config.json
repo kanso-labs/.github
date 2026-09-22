@@ -1,5 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "dependencyDashboard": false,
-  "description": "Renovate settings shared across kanso-labs, extended as local>kanso-labs/.github:renovate-config by the runner's config.js and by every repository that ships a config of its own. It is listed after config:recommended so these values win, and it deliberately extends nothing itself: a preset that pulled in config:recommended would reinstate it for a consumer that had chosen otherwise. dependencyDashboard is off because nothing in this organization holds an update back — prConcurrentLimit and prHourlyLimit are 0 and recreateWhen is always everywhere — so every pending update is already an open pull request and the dashboard would do nothing but restate them."
+  "description": "Renovate settings shared across kanso-labs, extended as local>kanso-labs/.github:renovate-config by the runner's config.js and by every repository that ships a config of its own. It is listed after config:recommended so these values win, and it deliberately extends nothing itself: a preset that pulled in config:recommended would reinstate it for a consumer that had chosen otherwise. Everything here was previously restated in each repository, byte for byte; a setting only some repositories want does not belong here, because a consumer cannot opt out of a preset it extends except by restating the opposite. dependencyDashboard is off because nothing in this organization holds an update back, so every pending update is already an open pull request and the dashboard would do nothing but restate them.",
+  "mise": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "Renovate's own config:recommended sets semanticCommitType through a packageRule, and packageRules beat top-level config. Setting it at the top level therefore does nothing at all: every upgrade stays chore and cuts no release. This rule is first so that a repository's own rules can still override it for specific packages, which home-assistant-applications relies on to type container bumps as fix.",
+      "matchPackageNames": ["*"],
+      "semanticCommitType": "deps"
+    },
+    {
+      "automerge": true,
+      "description": "Minors and patches automerge. A repository that needs a human on a particular package states a narrower rule in its own config, which lands after this one and therefore wins — actions does exactly that for rhysd/actionlint.",
+      "matchUpdateTypes": ["minor", "patch"]
+    }
+  ],
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0,
+  "rebaseWhen": "behind-base-branch",
+  "recreateWhen": "always",
+  "semanticCommitScope": null,
+  "semanticCommits": "enabled"
 }
