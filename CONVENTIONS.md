@@ -56,9 +56,9 @@ mise exec node@"$(awk '/^nodejs/{print $2}' .tool-versions)" -- npm install
 **Formatting is not shared, and assuming it is will send you to a command that
 does not exist.** oxfmt formats `kanso-ui` and `unplugin-style-dictionary`;
 Prettier formats `actions` through an `npm run format` script, and
-`home-assistant-applications` and `home-assistant-xiaomi-cloud-map` through bare
-`npx`, since neither has a root `package.json` and so neither has a script; ruff
-formats the Python in `home-assistant-xiaomi-cloud-map`; `renovate` has no
+`home-assistant-applications` and `home-assistant-xiaomi-vacuum-map` through
+bare `npx`, since neither has a root `package.json` and so neither has a script;
+ruff formats the Python in `home-assistant-xiaomi-vacuum-map`; `renovate` has no
 formatter. A roster of what each one runs belongs in each one rather than here.
 Read the Commands section of whichever repository you are actually in before
 reaching for a formatting command.
