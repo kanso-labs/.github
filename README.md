@@ -8,7 +8,7 @@ Organization-wide community health files for
 GitHub serves a fixed set of files from a repository named `.github` to every
 other repository in the organization that does not carry its own copy. That is
 what this repository is for: each shared document is written once here rather
-than copied into five repositories and kept in step by hand.
+than copied into seven repositories and kept in step by hand.
 
 The supported set is GitHub's, not ours:
 
@@ -71,7 +71,7 @@ repository's own config is merged *over* the runner's global config, and every
 one of them re-extends `config:recommended` — so a setting written only in
 `config.js` is reinstated by the preset everywhere except the repositories
 carrying no config at all. Writing it here instead means one file to change
-rather than six.
+rather than seven.
 
 **The preset extends nothing itself, deliberately.** Pulling `config:recommended`
 into it would reinstate that preset's defaults for a consumer that had chosen
