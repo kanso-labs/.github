@@ -55,12 +55,13 @@ mise exec node@"$(awk '/^nodejs/{print $2}' .tool-versions)" -- npm install
 
 **Formatting is not shared, and assuming it is will send you to a command that
 does not exist.** oxfmt formats `kanso-ui` and `unplugin-style-dictionary`;
-Prettier formats `actions` through an `npm run format` script and
-`home-assistant-applications` through bare `npx`, which has no root
-`package.json` and so no script at all; `renovate` has no formatter. A roster of
-what each one runs belongs in each one rather than here. Read the Commands
-section of whichever repository you are actually in before reaching for a
-formatting command.
+Prettier formats `actions` through an `npm run format` script, and
+`home-assistant-applications` and `home-assistant-xiaomi-vacuum-map` through
+bare `npx`, since neither has a root `package.json` and so neither has a script;
+ruff formats the Python in `home-assistant-xiaomi-vacuum-map`; `renovate` has no
+formatter. A roster of what each one runs belongs in each one rather than here.
+Read the Commands section of whichever repository you are actually in before
+reaching for a formatting command.
 
 ## Keeping the copies in step
 
@@ -68,7 +69,7 @@ Nothing enforces any of this. There is no check comparing a repository's copy
 against this file, deliberately — the organization decided the cost of one was
 not worth what it would catch.
 
-So a change to the shared set is a change to six files, and the discipline is
+So a change to the shared set is a change to seven files, and the discipline is
 the only thing holding them together:
 
 1. Edit this file first. It is the one that is right by definition.
