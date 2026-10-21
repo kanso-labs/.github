@@ -6,8 +6,8 @@ Guidance for coding agents working in this repository.
 
 The organization's community health files, which GitHub serves to every
 repository in `kanso-labs` that carries no copy of its own, plus the canonical
-conventions the repositories restate and the shared Renovate preset they
-extend.
+conventions the repositories restate, the shared Renovate preset they extend,
+and the workflow that redeploys kansolabs.org when a guideline changes.
 
 **[`README.md`](README.md) is the reference, and this file does not repeat it.**
 It lists which paths GitHub serves and which it does not, the three rules that
@@ -35,6 +35,13 @@ There is no CI here to catch that. `kanso-labs/renovate` is the only repository
 that runs Renovate in CI, through its `Dry run Renovate` job, so a preset change
 is worth checking against a branch there before merging it here.
 
+**Four of the guidelines are also pages on kansolabs.org**, and a push to `main`
+that touches one redeploys the site through `Rebuild Home Page`. So a change to
+`CONTRIBUTING.md`, `SUPPORT.md`, `SECURITY.md` or `CODE_OF_CONDUCT.md` is public
+there within minutes too, and a file that does not open with a `#` heading fails
+the site's build. README.md's "kansolabs.org renders four of these files" says
+how it fits together.
+
 **Nothing formats or lints this repository.** There is no `package.json`, no
 Prettier and no oxfmt — the same arrangement as `renovate`. Match the
 surrounding style by hand: prose wrapped at 80 columns, tables left to run past
@@ -47,4 +54,9 @@ here most likely to go quietly wrong.
 
 ## Commands
 
-None. There is nothing to build, test or format.
+There is nothing to build, test or format. One command redeploys kansolabs.org
+without a change here, through the same workflow a push starts:
+
+```shell
+gh workflow run rebuild-home-page.yaml --repo kanso-labs/.github
+```

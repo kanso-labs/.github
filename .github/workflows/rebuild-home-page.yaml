@@ -1,0 +1,48 @@
+name: Rebuild Home Page
+
+# kansolabs.org renders four of the guidelines here as pages, read from this
+# repository's main branch when the site is built. A change to one reaches the
+# site only once it is built again, so a push that touches one starts that.
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - CODE_OF_CONDUCT.md
+      - CONTRIBUTING.md
+      - SECURITY.md
+      - SUPPORT.md
+  workflow_dispatch:
+
+# Every call goes through the application token minted below, so the
+# workflow's own token needs nothing.
+permissions: {}
+
+jobs:
+  rebuild:
+    name: Rebuild the home page
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # A workflow's own token cannot start a workflow in another repository,
+      # so the organization's GitHub App does it, through the credentials the
+      # Renovate command workflows use for the same reason. The token reaches
+      # only the site's repository, and can only run its workflows.
+      - name: Mint an application token
+        id: app-token
+        uses: actions/create-github-app-token@v3.3.0
+        with:
+          client-id: ${{ secrets.RENOVATE_CLIENT_ID }}
+          owner: ${{ github.repository_owner }}
+          permission-actions: write
+          private-key: ${{ secrets.RENOVATE_PRIVATE_KEY }}
+          repositories: kanso-labs.github.io
+
+      # The site builds from its own main, and reads the guidelines from this
+      # repository's main, which this push has already updated.
+      - name: Dispatch the deploy
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: >-
+          gh workflow run deploy-pages.yaml --ref main --repo
+          kanso-labs/kanso-labs.github.io
