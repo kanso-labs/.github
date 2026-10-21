@@ -19,10 +19,13 @@ obvious at the time.
 | [unplugin-style-dictionary](https://github.com/kanso-labs/unplugin-style-dictionary)             | Compiles Style Dictionary design tokens ahead of your bundler. One implementation targets Vite, Rolldown, Rollup, Rspack and Webpack, with watching and HMR under Vite. |
 | [home-assistant-applications](https://github.com/kanso-labs/home-assistant-applications)         | Home Assistant applications for the arr stack, Plex, qBittorrent, NZBGet, Seerr and n8n. aarch64 and amd64, kept current automatically. |
 | [home-assistant-robot-vacuum-map](https://github.com/kanso-labs/home-assistant-robot-vacuum-map) | A Home Assistant integration, installed through HACS, that draws live maps of Xiaomi, Roborock, Dreame, Viomi, Roidmi and iJai robot vacuums from Xiaomi's cloud, with no rooting. |
+| [kanso-labs.github.io](https://github.com/kanso-labs/kanso-labs.github.io)                       | The kansolabs.org home page: one prerendered React Router page built with kanso-ui, served by GitHub Pages. |
 | [actions](https://github.com/kanso-labs/actions)                                                 | The shared CI surface — composite actions and reusable workflows, consumed by every repository above. |
 | [renovate](https://github.com/kanso-labs/renovate)                                               | The self-hosted Renovate runner. One scheduled workflow keeps dependencies current everywhere, with `@renovate` comment commands. |
 | [.github](https://github.com/kanso-labs/.github)                                                 | This repository: the community health files every repository inherits, and the conventions they share. |
 
+**[kansolabs.org](https://kansolabs.org/)** is the home page, listing each of
+these with a way into it.
 **[kanso-ui.kansolabs.org](https://kanso-ui.kansolabs.org/)** documents every
 component in Storybook, published from the latest release.
 
