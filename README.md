@@ -102,6 +102,25 @@ A repository that does carry its own copy of one of these files is overriding
 the default on purpose. Say so in that repository's `AGENTS.md`, so a later
 tidy-up does not delete it for consistency.
 
+## kansolabs.org renders four of these files
+
+`CONTRIBUTING.md`, `SUPPORT.md`, `SECURITY.md` and `CODE_OF_CONDUCT.md` are
+also pages on [kansolabs.org](https://kansolabs.org/), which
+[`kanso-labs/kanso-labs.github.io`](https://github.com/kanso-labs/kanso-labs.github.io)
+builds from the files here. It copies nothing, so each page is the file as it
+stood when the site was last deployed.
+
+**A change to one of them deploys the site again.** `Rebuild Home Page`, in
+`.github/workflows/`, runs on every push to `main` that touches one of the four
+and dispatches the site's `Deploy Pages`. It does that through the
+organization's GitHub App, because a workflow's own token cannot start a
+workflow in another repository. The pages catch up a few minutes after the
+merge.
+
+**The workflow names the four files.** When the site starts rendering another
+one, add it to the workflow's `paths` too, or its changes will reach the site
+only with the site's own next deploy.
+
 ## This is not the CI repository
 
 [`kanso-labs/actions`](https://github.com/kanso-labs/actions)
@@ -113,3 +132,6 @@ templates live here; anything with a `uses:` pointing at it lives there.
 something a workflow calls — no `uses:` points at it, and the workflow that
 runs Renovate lives in
 [`kanso-labs/renovate`](https://github.com/kanso-labs/renovate) either way.
+
+`Rebuild Home Page` does not blur it either. It runs on pushes to this
+repository, and no workflow calls it.
