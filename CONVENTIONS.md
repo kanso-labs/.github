@@ -56,9 +56,9 @@ mise exec node@"$(awk '/^nodejs/{print $2}' .tool-versions)" -- npm install
 **Formatting is not shared, and assuming it is will send you to a command that
 does not exist.** oxfmt formats `kanso-ui` and `unplugin-style-dictionary`;
 Prettier formats `actions` through an `npm run format` script, and
-`home-assistant-applications` and `home-assistant-xiaomi-vacuum-map` through
+`home-assistant-applications` and `home-assistant-robot-vacuum-map` through
 bare `npx`, since neither has a root `package.json` and so neither has a script;
-ruff formats the Python in `home-assistant-xiaomi-vacuum-map`; `renovate` has no
+ruff formats the Python in `home-assistant-robot-vacuum-map`; `renovate` has no
 formatter. A roster of what each one runs belongs in each one rather than here.
 Read the Commands section of whichever repository you are actually in before
 reaching for a formatting command.
@@ -69,11 +69,19 @@ Nothing enforces any of this. There is no check comparing a repository's copy
 against this file, deliberately — the organization decided the cost of one was
 not worth what it would catch.
 
-So a change to the shared set is a change to seven files, and the discipline is
-the only thing holding them together:
+So a change to the shared set is a change to this file and to every copy, and
+the discipline is the only thing holding them together:
 
 1. Edit this file first. It is the one that is right by definition.
 2. Open a pull request per repository carrying the same edit.
+
+The copies are not counted here, because a count goes stale the day a
+repository is added. Every repository but this one should carry a copy, so the
+list of copies is the organization's list of repositories:
+
+```shell
+gh repo list kanso-labs --no-archived
+```
 
 A copy that has drifted is not wrong because it disagrees with a checker. It is
 wrong because the next agent to read it will follow it.
