@@ -12,17 +12,23 @@ than copied into every repository and kept in step by hand.
 
 The supported set is GitHub's, not ours:
 
-| Path                       | Serves                              |
-| -------------------------- | ----------------------------------- |
-| `CODE_OF_CONDUCT.md`       | every repository                    |
-| `CONTRIBUTING.md`          | every repository                    |
-| `SECURITY.md`              | every repository                    |
-| `SUPPORT.md`               | every repository                    |
-| `ISSUE_TEMPLATE/`          | every repository, with `config.yml` |
-| `PULL_REQUEST_TEMPLATE.md` | every repository                    |
-| `DISCUSSION_TEMPLATE/`     | every repository                    |
-| `FUNDING.yml`              | every repository                    |
-| `profile/README.md`        | the organization's public page      |
+| Path                           | Serves                              |
+| ------------------------------ | ----------------------------------- |
+| `CODE_OF_CONDUCT.md`           | every repository                    |
+| `CONTRIBUTING.md`              | every repository                    |
+| `SECURITY.md`                  | every repository                    |
+| `SUPPORT.md`                   | every repository                    |
+| `.github/ISSUE_TEMPLATE/`      | every repository, with `config.yml` |
+| `PULL_REQUEST_TEMPLATE.md`     | every repository                    |
+| `.github/DISCUSSION_TEMPLATE/` | every repository                    |
+| `.github/FUNDING.yml`          | every repository                    |
+| `profile/README.md`            | the organization's public page      |
+
+Three of those paths sit in this repository's own `.github/` folder, because
+GitHub reads issue and discussion templates and `FUNDING.yml` from nowhere else.
+The other guidelines may sit at the root, where they are. Put a template
+anywhere else and nothing warns you — it simply never appears on any
+repository's new-issue page.
 
 `LICENSE`, `README.md`, `CHANGELOG.md`, `CODEOWNERS` and `AGENTS.md` cannot be
 served this way and stay in the repository they belong to.
