@@ -14,6 +14,7 @@ The supported set is GitHub's, not ours:
 
 | Path                           | Serves                              |
 | ------------------------------ | ----------------------------------- |
+| `ACCESSIBILITY.md`             | every repository                    |
 | `CODE_OF_CONDUCT.md`           | every repository                    |
 | `CONTRIBUTING.md`              | every repository                    |
 | `SECURITY.md`                  | every repository                    |
