@@ -200,7 +200,7 @@ Every project runs GitHub's built-in workflows with these settings:
 | Item closed | Status: Done |
 | Auto-close issue | On, when Status is set to Done |
 | Auto-add sub-issues to project | On |
-| Auto-archive items | `is:closed updated:<@today-2w` |
+| Auto-archive items | `is:issue is:closed updated:<@today-1w` |
 
 Item reopened matters more than it looks: without it, an issue reopened after a
 merged pull request stays Done.
