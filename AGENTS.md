@@ -42,6 +42,13 @@ there within minutes too, and a file that does not open with a `#` heading fails
 the site's build. README.md's "kansolabs.org renders four of these files" says
 how it fits together.
 
+**`PROJECTS.md` has a second copy that is not a file.** The Default Project
+Template, in the organization's GitHub Projects, implements it: its fields,
+views and workflows are the ones the file lists, and every new project is
+copied from it. A change to the standard is a change here and one to the
+template, and the template's settings are edited on GitHub rather than in a
+pull request.
+
 **Nothing formats or lints this repository.** There is no `package.json`, no
 Prettier and no oxfmt — the same arrangement as `renovate`. Match the
 surrounding style by hand: prose wrapped at 80 columns, tables left to run past

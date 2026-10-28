@@ -34,19 +34,25 @@ repository's new-issue page.
 `LICENSE`, `README.md`, `CHANGELOG.md`, `CODEOWNERS` and `AGENTS.md` cannot be
 served this way and stay in the repository they belong to.
 
-Three files here are served by GitHub to nothing and are simply kept in the one
+Five files here are served by GitHub to nothing and are simply kept in the one
 place that belongs to no single repository:
 
 - **`CONVENTIONS.md`** — the canonical text each repository restates in its
   own `AGENTS.md`. Nothing enforces the match; the copies are kept in step by
   hand.
+- **`PROJECTS.md`** — the standard every project in the organization's GitHub
+  Projects follows: what an issue carries, and the fields, views and workflows
+  of a project. The Default Project Template implements it, so a change to one
+  is a change to the other.
+- **`labels.yaml`** — the labels every repository carries and the ones it no
+  longer does. `PROJECTS.md` says why the list is short.
 - **`LICENSE.md`** — this repository's own. GitHub cannot serve a licence as a
   default, and it should not: a licence has to travel with the code, so every
   repository keeps its own copy of the same MIT text. Every formatter in the
   organization is told to leave it alone, which is what keeps the copies byte
   for byte equal.
 - **`renovate-config.json`** — the shared Renovate preset, described below.
-  Unlike the other two it is not restated anywhere: it is read, not copied.
+  Unlike `CONVENTIONS.md` it is not restated anywhere: it is read, not copied.
 
 ## The shared Renovate preset
 
