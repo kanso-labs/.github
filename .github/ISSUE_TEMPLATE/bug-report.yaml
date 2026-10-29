@@ -50,7 +50,6 @@ body:
     validations:
       required: false
 description: Report something that does not work as documented.
-labels:
-  - 'kind:fix'
 name: Bug report
 title: 'fix: '
+type: Bug
