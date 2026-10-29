@@ -141,7 +141,12 @@ gh api graphql -f query='{organization(login:"kanso-labs"){projectsV2(first:50){
 ```
 
 **Every issue in a linked repository is on its project,** except the ones a bot
-files for itself, such as Renovate's Dependency Dashboard.
+files for itself, such as Renovate's Dependency Dashboard. Each repository puts
+them there itself: its `add-to-project.yaml` names its project and calls
+`_add-to-project.yaml` in
+[`kanso-labs/actions`](https://github.com/kanso-labs/actions) on every issue
+opened or reopened, through the organization's GitHub App. A project's built-in
+auto-add workflow is not used, since on GitHub Free it covers one repository.
 
 ### Status
 
@@ -224,6 +229,12 @@ list:
 A label in neither list is left alone. Dependabot creates ecosystem labels such
 as `javascript` for itself, and removing them only makes it create them again.
 
+**The list is applied by hand, when it changes.** Labels move rarely, so no
+workflow runs on a schedule to hold them. `_sync-labels.yaml` in
+`kanso-labs/actions` applies the list to whichever repository calls it, for the
+day it does change. A repository created later starts with GitHub's default
+labels unless the organization's default labels are set to match this list.
+
 ## Starting a project
 
 1. Copy the Default Project Template, and rename the copy after the product.
@@ -231,38 +242,7 @@ as `javascript` for itself, and removing them only makes it create them again.
 3. Replace the template's Area options with the product's own parts.
 4. Rewrite its README: the repositories it covers, where its items came from,
    its Area options and any field it adds.
-5. Add every open issue in those repositories, and triage each out of Backlog.
+5. Add an `add-to-project.yaml` naming the project to each of those
+   repositories, as the others carry.
+6. Add every open issue in those repositories, and triage each out of Backlog.
 
-## Rollout
-
-The standard is ahead of the organization in three places, and this section
-goes once each is done.
-
-- **Adding issues to projects.** A reusable `_add-to-project.yaml` in
-  [`kanso-labs/actions`](https://github.com/kanso-labs/actions), run on
-  `issues: opened` through the organization's GitHub App, is still to come. A
-  project's built-in auto-add workflow covers only one repository on GitHub
-  Free, which leaves the others of a multi-repository project uncovered.
-- **Syncing labels.** A reusable workflow that applies `labels.yaml` to every
-  repository is still to come, so the retired labels are still in place. They
-  go once each project has migrated, since its items still use them.
-- **The existing projects.** Kanso UI, Unplugin Style Dictionary, Home
-  Assistant Applications, Daily and Robot Vacuum Map predate the standard.
-  Each migrates in this order, so no value is lost before it has a new home:
-  1. Kind becomes the issue type: Fix → Bug; Feature, Component, Variant,
-     Integration and Application → Feature; Decision → Decision; Spike →
-     Spike; everything else → Task.
-  2. Size becomes Effort: S → Low, M → Medium, L → High. Where an issue
-     already has an Effort that disagrees, Size wins, since it was the planned
-     value.
-  3. Each phase becomes what it meant: a module or programme becomes an epic
-     with its items as sub-issues, a release becomes a milestone, Decisions
-     and Quick wins dissolve into the issue type and Effort, and Later becomes
-     Backlog with Low priority.
-  4. "Depends on" sections become blocked-by links.
-  5. The project's views and workflows are set as above.
-  6. Phase, Kind, Size and Platform are deleted, and the repository's `kind:`,
-     `area:` and `platform:` labels with them. Archived items are migrated
-     too, since deleting a field clears its value on them.
-  7. The repository's `AGENTS.md` stops describing the old fields and points
-     here.
