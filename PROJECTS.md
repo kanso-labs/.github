@@ -120,10 +120,11 @@ on a project carries both once it leaves Backlog:
 such as a release someone is waiting on, and a project's timeline view picks
 them up.
 
-The issue fields are visible to the organization's members only, so a
-contributor outside it does not see them on a public repository. GitHub also
-refuses to make a project public while it shows a field visible to members
-only, which the Rollout section below takes up.
+**The four fields are visible to everyone, and must stay that way.** GitHub
+refuses to make a project public while it shows a field visible to the
+organization's members only, and most of the organization's projects are
+public. Visible to everyone also means a contributor sees what an issue's
+priority and effort are.
 
 ## Projects
 
@@ -234,15 +235,8 @@ as `javascript` for itself, and removing them only makes it create them again.
 
 ## Rollout
 
-The standard is ahead of the organization in four places, and this section
+The standard is ahead of the organization in three places, and this section
 goes once each is done.
-
-- **Public projects.** Priority, Effort, Start date and Target date are visible
-  to the organization's members only, and GitHub will not make a project
-  public while it shows one of them. So the Kanso Labs project is private for
-  now, and Kanso UI, Unplugin Style Dictionary, Home Assistant Applications and
-  Robot Vacuum Map, which are public, cannot take the fields as they stand.
-  Making the four fields visible to everyone settles it for all of them.
 
 - **Adding issues to projects.** A reusable `_add-to-project.yaml` in
   [`kanso-labs/actions`](https://github.com/kanso-labs/actions), run on
