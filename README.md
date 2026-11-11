@@ -123,9 +123,9 @@ also pages on [kansolabs.org](https://kansolabs.org/), which
 builds from the files here. It copies nothing, so each page is the file as it
 stood when the site was last deployed.
 
-**A change to one of them deploys the site again.** `Rebuild Home Page`, in
+**A change to one of them deploys the site again.** `Rebuild home page`, in
 `.github/workflows/`, runs on every push to `main` that touches one of the four
-and dispatches the site's `Deploy Pages`. It does that through the
+and dispatches the site's `Deploy pages`. It does that through the
 organization's GitHub App, because a workflow's own token cannot start a
 workflow in another repository. The pages catch up a few minutes after the
 merge.
@@ -146,5 +146,5 @@ something a workflow calls — no `uses:` points at it, and the workflow that
 runs Renovate lives in
 [`kanso-labs/renovate`](https://github.com/kanso-labs/renovate) either way.
 
-`Rebuild Home Page` does not blur it either. It runs on pushes to this
+`Rebuild home page` does not blur it either. It runs on pushes to this
 repository, and no workflow calls it.

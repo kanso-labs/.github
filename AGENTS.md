@@ -36,7 +36,7 @@ that runs Renovate in CI, through its `Dry run Renovate` job, so a preset change
 is worth checking against a branch there before merging it here.
 
 **Four of the guidelines are also pages on kansolabs.org**, and a push to `main`
-that touches one redeploys the site through `Rebuild Home Page`. So a change to
+that touches one redeploys the site through `Rebuild home page`. So a change to
 `CONTRIBUTING.md`, `SUPPORT.md`, `SECURITY.md` or `CODE_OF_CONDUCT.md` is public
 there within minutes too, and a file that does not open with a `#` heading fails
 the site's build. README.md's "kansolabs.org renders four of these files" says
