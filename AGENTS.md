@@ -62,6 +62,13 @@ thing here most likely to go quietly wrong.
 
 ## Commands
 
+**Dependabot raises security updates here and nothing else.**
+`.github/dependabot.yaml` has one `github-actions` entry with
+`open-pull-requests-limit: 0` and `commit-message.prefix: deps`, so a security
+update is titled like Renovate's pull requests elsewhere. `dependabot-auto-merge.yaml`
+enables squash auto-merge for its minor and patch updates. The ruleset requires
+no status checks, so such a pull request merges as soon as GitHub allows.
+
 There is nothing to build, test or format. One command redeploys kansolabs.org
 without a change here, through the same workflow a push starts:
 
