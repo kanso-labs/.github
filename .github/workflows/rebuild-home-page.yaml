@@ -1,4 +1,4 @@
-name: Rebuild Home Page
+name: Rebuild home page
 
 # kansolabs.org renders four of the guidelines here as pages, read from this
 # repository's main branch when the site is built. A change to one reaches the
