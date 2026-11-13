@@ -13,8 +13,8 @@
     },
     {
       "automerge": true,
-      "description": "Minors and patches automerge. A repository that needs a human on a particular package states a narrower rule in its own config, which lands after this one and therefore wins — actions does exactly that for rhysd/actionlint.",
-      "matchUpdateTypes": ["minor", "patch"]
+      "description": "Minors, patches and lock file maintenance automerge. Lock file maintenance is an update type of its own, which a rule for minors and patches does not reach, so it is named here rather than left to each repository's lockFileMaintenance block: until it was, the repositories that never restated automerge there left its pull request waiting for a person every day. A repository that needs a human on a particular package states a narrower rule in its own config, which lands after this one and therefore wins — actions does exactly that for rhysd/actionlint.",
+      "matchUpdateTypes": ["lockFileMaintenance", "minor", "patch"]
     }
   ],
   "prConcurrentLimit": 0,
