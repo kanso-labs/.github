@@ -51,8 +51,10 @@ vulnerability here:
   Loading a JavaScript or TypeScript config file means executing it, so any
   validation happens after its side effects. Where a project can turn that
   discovery off, it documents how.
-- **Every `npm ci` in CI passes `--ignore-scripts`**, and automerged dependency
-  upgrades wait out a release-age grace period before they can land.
+- **Every `npm ci` in CI passes `--ignore-scripts`**, and only minor, patch and
+  lock file updates merge on their own once checks pass; a major waits for a
+  person. There is no release-age wait: a new version can land the day it is
+  published.
 
 A repository with caveats of its own records them in its `README.md` or
 `AGENTS.md`.
