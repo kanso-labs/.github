@@ -12,6 +12,11 @@
       "semanticCommitType": "deps"
     },
     {
+      "description": "Updates from the github-actions manager are typed ci, which every repository's release-please config hides except actions', so bumping one cuts no release. That manager reads only workflows and action.yaml files, which a package, an app or an add-on never ships, and typed deps a bump of kanso-labs/actions alone opened react-native-kanso-ui's 0.16.9, whose notes said nothing but that. Regex managers aimed at .github/workflows are deliberately left deps: the tool one pins can shape what a repository ships, as react-native-daily's eas-cli publishes its updates, and a repository whose pins never do can type them itself. kanso-labs/actions is the exception, because its workflows and composite actions are what consumers pin, so its own config restates deps for this manager and, landing after this rule, wins. It follows the deps rule above so that it wins, and a repository's own rules still land after it.",
+      "matchManagers": ["github-actions"],
+      "semanticCommitType": "ci"
+    },
+    {
       "description": "Development tooling that never reaches what a repository ships — linters, formatters, commit and hook tooling, test runners and package checks — is typed chore, which every repository's release-please config hides, so bumping it cuts no release. Typed deps, a typescript-eslint bump alone opened kanso-ui-core's 0.1.24, and lint tooling alone cut 0.1.20 to 0.1.23. It matches npm devDependencies only, so a package a repository ships, or names as a peer, stays deps. Build tooling that shapes the published output, such as tsdown, typescript and style-dictionary, is deliberately absent and stays deps. eslint-plugin-storybook is negated because kanso-ui groups it with Storybook, and a group whose upgrades disagree on the type takes whichever comes first. It follows the deps rule above so that it wins, and a repository's own rules still land after it.",
       "matchDepTypes": ["devDependencies"],
       "matchManagers": ["npm"],
