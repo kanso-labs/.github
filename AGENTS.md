@@ -65,7 +65,9 @@ thing here most likely to go quietly wrong.
 **Dependabot raises security updates here and nothing else.**
 `.github/dependabot.yaml` has one `github-actions` entry with
 `open-pull-requests-limit: 0` and `commit-message.prefix: deps`, so a security
-update is titled like Renovate's pull requests elsewhere. `dependabot-auto-merge.yaml`
+update is titled like Renovate's dependency pull requests, although Renovate
+types its own action updates `ci` everywhere but `kanso-labs/actions`. Nothing
+releases here either way. `dependabot-auto-merge.yaml`
 enables squash auto-merge for its minor and patch updates. The ruleset requires
 no status checks, so such a pull request merges as soon as GitHub allows.
 
