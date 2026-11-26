@@ -17,7 +17,7 @@
       "semanticCommitType": "ci"
     },
     {
-      "description": "Development tooling that never reaches what a repository ships — linters, formatters, commit and hook tooling, test runners and package checks — is typed chore, which every repository's release-please config hides, so bumping it cuts no release. Typed deps, a typescript-eslint bump alone opened kanso-ui-core's 0.1.24, and lint tooling alone cut 0.1.20 to 0.1.23. It matches npm devDependencies only, so a package a repository ships, or names as a peer, stays deps. Build tooling that shapes the published output, such as tsdown, typescript and style-dictionary, is deliberately absent and stays deps. eslint-plugin-storybook is negated because kanso-ui groups it with Storybook, and a group whose upgrades disagree on the type takes whichever comes first. It follows the deps rule above so that it wins, and a repository's own rules still land after it.",
+      "description": "Development tooling that never reaches what a repository ships — linters, formatters, commit and hook tooling, test runners and their utilities, package and API checks, and cleanup scripts — is typed chore, which every repository's release-please config hides, so bumping it cuts no release. Typed deps, a typescript-eslint bump alone opened kanso-ui-core's 0.1.24, and lint tooling alone cut 0.1.20 to 0.1.23. It matches npm devDependencies only, so a package a repository ships, or names as a peer, stays deps. Build tooling that shapes the published output, such as tsdown, typescript and style-dictionary, is deliberately absent and stays deps. eslint-plugin-storybook is negated because kanso-ui groups it with Storybook, and a group whose upgrades disagree on the type takes whichever comes first. It follows the deps rule above so that it wins, and a repository's own rules still land after it.",
       "matchDepTypes": ["devDependencies"],
       "matchManagers": ["npm"],
       "matchPackageNames": [
@@ -26,13 +26,13 @@
         "@commitlint/**",
         "@eslint/**",
         "@jest/**",
+        "@microsoft/api-extractor",
         "@playwright/test",
+        "@seriousme/openapi-schema-validator",
         "@testing-library/**",
-        "@typescript-eslint/**",
         "@vitest/**",
         "c8",
         "eslint",
-        "eslint-config-**",
         "eslint-plugin-**",
         "fast-check",
         "globals",
@@ -47,8 +47,10 @@
         "playwright",
         "playwright-core",
         "prettier",
-        "prettier-plugin-**",
         "publint",
+        "rimraf",
+        "semver",
+        "test-renderer",
         "typescript-eslint",
         "vitest",
         "!eslint-plugin-storybook"
