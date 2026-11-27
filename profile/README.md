@@ -1,3 +1,10 @@
+<a href="https://brand.kansolabs.org/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://brand.kansolabs.org/logo/svg/kanso-horizontal-reversed.svg">
+    <img alt="Kanso Labs" src="https://brand.kansolabs.org/logo/svg/kanso-horizontal.svg" width="280">
+  </picture>
+</a>
+
 # Kanso Labs
 
 Design tokens, component libraries built on them for React and React Native,
@@ -28,6 +35,8 @@ obvious at the time.
 these with a way into it.
 **[kanso-ui.kansolabs.org](https://kanso-ui.kansolabs.org/)** documents every
 component in Storybook, published from the latest release.
+**[brand.kansolabs.org](https://brand.kansolabs.org/)** holds the logo, its
+icons and social images, and the guidelines for using them.
 
 ## What is planned
 
